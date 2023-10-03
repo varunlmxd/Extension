@@ -1,25 +1,30 @@
 {
-  "name": "Dad Jokes",
-  "version": "0.0.1",
-  "manifest_version": 2,
-  "browser_action": {
-    "default_popup": "popup.html",
-    "default_icon": "logo.png"
-  },
-  "icons": {
-    "128": "logo.png"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://leetcode.com/*"],
-      "js": ["script.js"],
-      "run_at": "document_end"
-    }
-  ],
-  "web_accessible_resources": [
-    
-      "bahubali.mp3"
-    
-  ],
-  "permissions": ["storage"]
-}
+    "manifest_version": 3,
+    "name": "Internship Popup Extension",
+    "version": "1.0",
+    "description": "Shows a popup when the word 'Internship' is found on a web page.",
+    "permissions": [
+      "activeTab","storage"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "128": "logo.png"
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://leetcode.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "web_accessible_resources": [{
+      "resources": ["bahubali.mp3"],
+      "matches": ["https://leetcode.com/*"]
+      }]
+  }
+  
