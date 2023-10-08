@@ -1,20 +1,13 @@
 {
     "manifest_version": 3,
-    "name": "Internship Popup Extension",
+    "name": "LeetCode Accepted Extension",
     "version": "1.0",
-    "description": "Shows a popup when the word 'Internship' is found on a web page.",
-    "permissions": ["storage", "declarativeContent", "activeTab", "scripting","tabs",
-    "notifications",
-    "http://*/",
-    "https://*/"],
-    "externally_connectable": {
-      "matches": ["<all_urls>"]
-  },
-    "host_permissions": ["https://*/*","http://*/"],
+    "description": "Shows a popup and plays a song when the LeetCode solution get accepted",
+    "permissions": ["storage","activeTab", "scripting","tabs"],
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
-        "128": "logo.png"
+        "128": "icon/logo.png"
       }
     },
     "background": {
@@ -22,13 +15,13 @@
     },
     "content_scripts": [
       {
-        "matches": ["<all_urls>"],
+        "matches": ["https://leetcode.com/*"],
         "js": ["content.js"],
         "run_at": "document_end"
       }
     ],
     "web_accessible_resources": [{
-      "resources": ["bahubali.mp3"],
+      "resources": ["music/bahubali.mp3"],
       "matches": ["<all_urls>"]
       }]
   }
