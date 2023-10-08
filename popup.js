@@ -3,7 +3,6 @@ const playPauseButton = document.getElementById("butn");
 const audio = document.getElementById("audio");
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message.action === 'playAudio') {
-    // Your audio playback code here
     if (audio) {
       audio.play();
     }
