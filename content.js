@@ -25,7 +25,6 @@ function checkForAccepted() {
 	}
 }
 
-// You can call this function when you want to play the audio
 
 checkForAccepted();
 const observer = new MutationObserver(() =>{
